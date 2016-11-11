@@ -1,10 +1,15 @@
+import os
 import tornado.ioloop
 import tornado.web
 
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello, world")
+        self.write("Hello, http://jackon.me")
+
+    def post(self):
+        os.system("./hooks/update-master.sh")
+        self.write("updating")
 
 
 def make_app():
